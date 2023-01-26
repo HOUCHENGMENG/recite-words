@@ -1,0 +1,33 @@
+:root {
+    /*覆盖element颜色 */
+    --el-color-primary: hsl(161, 43%, 50%);
+    --el-color-primary-light-3: hsl(161, 43%, 70%);
+    --el-color-primary-light-5: hsl(161, 43%, 80%);
+    --theme-color: #4c9b81;
+    /* 自定义的主题色 */
+    --text-color: #111;
+    --background-color: #fff;
+
+    --text-second-color: #333;
+    --background-second-color: #ddd;
+
+    --text-third-color: #555;
+    --background-third-color: #bbb;
+}
+:root.dark {
+    /*覆盖element颜色 */
+    --el-color-primary: hsl(161, 43%, 50%);
+    --el-color-primary-light-3: hsl(161, 43%, 70%);
+    --el-color-primary-light-5: hsl(161, 43%, 80%);
+    --theme-color: #4c9b81;
+
+    /* 自定义的主题色 */
+    --text-color: #fff;
+    --background-color: #111;
+
+    --text-second-color: #ddd;
+    --background-second-color: #333;
+
+    --text-third-color: #bbb;
+    --background-third-color: #555;
+}

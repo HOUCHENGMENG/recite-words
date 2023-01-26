@@ -1,0 +1,32 @@
+/* 两种引入方式都行 */
+@import url("./theme.css");
+@import "./global.css";
+@import "./media.css";
+:root {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+}
+#app {
+    color: var(--text-color);
+}
+.right-10 {
+    margin-right: 10px;
+}
+.right-20 {
+    margin-right: 20px;
+}
+.margin-10 {
+    margin-bottom: 10px;
+}
+.margin-20 {
+    margin-bottom: 20px;
+}
