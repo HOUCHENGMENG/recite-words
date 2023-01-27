@@ -48,6 +48,16 @@ const router = createRouter({
             name: "NotFound",
             component: () => import("../pages/NotFound.vue"),
         },
+        {
+            path: "/setting/Info",
+            name: "SettingInfo",
+            component: () => import("../pages/setting/Info.vue"),
+        },
+        {
+            path: "/setting/Learn",
+            name: "SettingLearn",
+            component: () => import("../pages/setting/learn.vue"),
+        },
     ],
 });
 

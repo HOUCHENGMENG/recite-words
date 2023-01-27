@@ -5,6 +5,9 @@ interface ApiSignUp {
 interface ApiLogin {
     token: string;
 }
+interface ApiSelfInfo {
+    token: string;
+}
 export async function signUp(
     username: string,
     password: string
@@ -23,5 +26,10 @@ export async function login(
         username,
         password,
     });
+    return response.data;
+}
+export async function fetchSelfInfo(): Promise<ApiSelfInfo> {
+    const response = await http.get("/user/info");
+    console.log(1);
     return response.data;
 }

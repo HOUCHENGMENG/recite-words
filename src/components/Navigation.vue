@@ -32,7 +32,30 @@
         </div>
         <div>
             <template v-if="tokenStore.isLogined">
-                <el-avatar :size="50" :src="''" />
+                <el-dropdown>
+                    <el-avatar :size="50" :src="userStore.avatarUrl" />
+                    <template #dropdown>
+                        <el-dropdown-menu>
+                            <Text :vertical="5" bold center>{{
+                                userStore.username
+                            }}</Text>
+                            <el-dropdown-item
+                                @click="router.push({ name: 'SettingInfo' })"
+                                >个人设置</el-dropdown-item
+                            >
+                            <el-dropdown-item
+                                @click="router.push({ name: 'SettingLearn' })"
+                                >学习设置</el-dropdown-item
+                            >
+
+                            <el-dropdown-item
+                                @click="tokenStore.logout()"
+                                divided
+                                >退出登录</el-dropdown-item
+                            >
+                        </el-dropdown-menu>
+                    </template>
+                </el-dropdown>
             </template>
             <template v-else>
                 <RouterLink
@@ -52,9 +75,12 @@
 <script setup lang="ts">
 import { useTokenStore } from "../stores/token";
 import { useThemeStore, Theme } from "@/stores/theme";
+import { useUserStore } from "@/stores/user";
 const route = useRoute();
+const router = useRouter();
 const tokenStore = useTokenStore();
 const themeStore = useThemeStore();
+const userStore = useUserStore();
 </script>
 <style scoped>
 .container {
