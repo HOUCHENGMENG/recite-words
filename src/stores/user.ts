@@ -8,19 +8,20 @@ export const useUserStore = defineStore(
         const username = ref("");
         const bio = ref("");
         const registerTime: Ref<number | null> = ref(null);
-        const avatarUrl = ref("");
+        const avatarUrl: Ref<string | undefined> = ref("");
 
         async function updateSelfInfo() {
             // 更新自身信息
+
             ({
                 id: userId.value,
                 username: username.value,
                 bio: bio.value,
-                register_time: registerTime.value,
                 avatar_url: avatarUrl.value,
+                register_time: registerTime.value,
             } = await fetchSelfInfo());
 
-            avatarUrl.value = avatarUrl.value || "/default.jpg"; // 默认头像
+            avatarUrl.value = avatarUrl.value || "/public/default.jpg"; // 默认头像
         }
 
         return {

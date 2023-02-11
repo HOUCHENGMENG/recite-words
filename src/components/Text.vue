@@ -21,6 +21,13 @@ const props = defineProps({
     },
     // weight: [Number, String],
     color: String,
+    textAlign: {
+        type: String,
+    },
+    center: {
+        type: Boolean,
+        default: false,
+    },
 });
 const size = computed(() => {
     return typeof props.size === "string" ? props.size : `${props.size}px`;
@@ -40,6 +47,9 @@ const weight = computed(() => {
     }
     return "unset";
 });
+const textAlign = computed(() => {
+    return props.center ? "center" : props.textAlign || "unset";
+});
 </script>
 <style scoped>
 .text {
@@ -47,5 +57,6 @@ const weight = computed(() => {
     font-size: v-bind("size");
     font-weight: v-bind("weight");
     margin-bottom: v-bind("bottom");
+    text-align: v-bind(textAlign);
 }
 </style>

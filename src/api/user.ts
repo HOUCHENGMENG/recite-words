@@ -1,13 +1,4 @@
 import http from "./http";
-interface ApiSignUp {
-    token: string;
-}
-interface ApiLogin {
-    token: string;
-}
-interface ApiSelfInfo {
-    token: string;
-}
 export async function signUp(
     username: string,
     password: string
@@ -30,6 +21,31 @@ export async function login(
 }
 export async function fetchSelfInfo(): Promise<ApiSelfInfo> {
     const response = await http.get("/user/info");
-    console.log(1);
+
+    return response.data;
+}
+export async function updateSelfInfo({
+    username,
+    password,
+    newpassword,
+    bio,
+    avatar,
+}: ParamUpdateSelfInfo): Promise<ApiUpdateSelfInfo | null> {
+    if (username || newpassword) {
+        // 更新用户名或密码
+        // 必须提供旧密码
+        console.assert(password != undefined, "修改用户名或密码必须提供旧密码");
+    }
+
+    const data = new FormData();
+    if (username) data.append("username", username);
+    if (password) data.append("password", password);
+
+    if (newpassword) data.append("newpassword", newpassword);
+
+    if (bio) data.append("bio", bio);
+    if (avatar) data.append("avatar", avatar as Blob);
+    const response = await http.put("/user/info", data);
+
     return response.data;
 }
