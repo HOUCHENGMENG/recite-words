@@ -33,7 +33,13 @@
                 </div>
             </div>
         </div>
-        <el-button type="primary" size="large" round>开始学习</el-button>
+        <el-button
+            @click="router.push({ name: 'Task' })"
+            type="primary"
+            size="large"
+            round
+            >开始学习</el-button
+        >
     </div>
 </template>
 <script setup lang="ts">
@@ -50,6 +56,7 @@ import axios from "axios";
 //         name: "about",
 //     });
 // }
+const router = useRouter();
 </script>
 <style scoped>
 .container {

@@ -1,6 +1,7 @@
 .row-between,
 .row-around,
-.row-start {
+.row-start,
+.row-center {
     display: flex;
     align-items: center;
 }
@@ -13,6 +14,12 @@
 .row-start {
     justify-content: flex-start;
 }
+.row-center {
+    justify-content: center;
+}
 .text-center {
     text-align: center;
+}
+.bottom-20 {
+    margin-bottom: 20px;
 }

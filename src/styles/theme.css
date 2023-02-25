@@ -13,6 +13,7 @@
 
     --text-third-color: #555;
     --background-third-color: #bbb;
+    --primary-color: #5bbe9e;
 }
 :root.dark {
     /*覆盖element颜色 */

@@ -28,6 +28,31 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    // 设置 margin
+    left: [Number, String],
+    top: [Number, String],
+    right: [Number, String],
+    vertical: [Number, String], // 垂直
+    horizontal: [Number, String], // 水平
+});
+function formatPx(value: number | string | undefined): string {
+    if (value) {
+        return typeof value === "string" ? value : `${value}px`;
+    }
+    return "unset";
+}
+const margin = computed(function () {
+    let top, right, bottom, left;
+
+    top = bottom = props.vertical ? formatPx(props.vertical) : "0";
+    left = right = props.horizontal ? formatPx(props.horizontal) : "0";
+
+    if (props.top) top = formatPx(props.top);
+    if (props.right) right = formatPx(props.right);
+    if (props.bottom) bottom = formatPx(props.bottom);
+    if (props.left) left = formatPx(props.left);
+
+    return `${top} ${right} ${bottom} ${left}`;
 });
 const size = computed(() => {
     return typeof props.size === "string" ? props.size : `${props.size}px`;
@@ -58,5 +83,6 @@ const textAlign = computed(() => {
     font-weight: v-bind("weight");
     margin-bottom: v-bind("bottom");
     text-align: v-bind(textAlign);
+    margin: v-bind("margin");
 }
 </style>

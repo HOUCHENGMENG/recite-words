@@ -30,6 +30,7 @@ export async function getWords(): Promise<ApiWords> {
     });
     return response.data;
 }
-export function getWordDetail() {
-    // 获取单词详情
+export async function getWordDetail(wordId: number): Promise<Word> {
+    const response = await http.get(`/words/${wordId}`);
+    return response.data;
 }

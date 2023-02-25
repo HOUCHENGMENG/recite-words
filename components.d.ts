@@ -7,9 +7,12 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Container: typeof import('./src/components/Container.vue')['default']
+    Detail: typeof import('./src/components/Detail.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
@@ -21,7 +24,11 @@ declare module '@vue/runtime-core' {
     Navigation: typeof import('./src/components/Navigation.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TaskPrompt: typeof import('./src/components/task/TaskPrompt.vue')['default']
+    TaskPromt: typeof import('./src/components/task/TaskPromt.vue')['default']
+    TaskWord: typeof import('./src/components/task/TaskWord.vue')['default']
     Text: typeof import('./src/components/Text.vue')['default']
     TEXT: typeof import('./src/components/TEXT.vue')['default']
+    TodayProgress: typeof import('./src/components/TodayProgress.vue')['default']
   }
 }
