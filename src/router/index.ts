@@ -8,6 +8,9 @@ const router = createRouter({
             path: "/",
             name: "Home",
             component: Home,
+            meta: {
+                title: "首页",
+            },
         },
         {
             path: "/words",
@@ -16,6 +19,9 @@ const router = createRouter({
             // this generates a separate chunk (Words.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
             component: () => import("../pages/Words.vue"),
+            meta: {
+                title: "词表",
+            },
         },
         {
             path: "/words/:id",
@@ -24,6 +30,9 @@ const router = createRouter({
             // this generates a separate chunk (Words.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
             component: () => import("../pages/WordDetails.vue"),
+            meta: {
+                title: "单词详情页",
+            },
         },
         {
             path: "/statistics",
@@ -32,6 +41,9 @@ const router = createRouter({
             // this generates a separate chunk (Words.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
             component: () => import("../pages/Statistics.vue"),
+            meta: {
+                title: "数据统计",
+            },
         },
         {
             path: "/login",
@@ -39,6 +51,7 @@ const router = createRouter({
             component: () => import("../pages/Login.vue"),
             meta: {
                 requiresNoAuth: true,
+                title: "登录",
             },
         },
         {
@@ -47,6 +60,7 @@ const router = createRouter({
             component: () => import("../pages/SignUp.vue"),
             meta: {
                 requiresNoAuth: true,
+                title: "注册",
             },
         },
         {
@@ -60,12 +74,16 @@ const router = createRouter({
             component: () => import("../pages/setting/Info.vue"),
             meta: {
                 requiresAuth: true,
+                title: "个人设置",
             },
         },
         {
             path: "/setting/Learn",
             name: "SettingLearn",
             component: () => import("../pages/setting/Learn.vue"),
+            meta: {
+                title: "学习设置",
+            },
         },
         {
             path: "/task",
@@ -95,6 +113,9 @@ router.beforeEach((to, from) => {
                 query: { redirect: to.fullPath },
             });
         }
+    }
+    if (to.meta.title) {
+        document.title = `${to.meta.title}-背单词`;
     }
 });
 export default router;

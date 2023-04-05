@@ -8,6 +8,7 @@ import pinia from "./pinia/index";
 import "element-plus/dist/index.css";
 //element夜间主题样式
 import "element-plus/theme-chalk/dark/css-vars.css";
+import i18n from "./plugins/i18n";
 const app = createApp(App);
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component);
@@ -15,4 +16,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 app.use(router);
 app.use(pinia);
 
+app.use(i18n);
 app.mount("#app");
